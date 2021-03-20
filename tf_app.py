@@ -27,7 +27,7 @@ filenames = map(lambda x: '\\new_images\\' + x,
                 'image 5.jpg', 'image 6.jpg'))
 
 #Save the location info
-MODEL = 'ssd_resnet101_v1_fpn_640x640_coco17_tpu-8'
+MODEL = 'my_model1'
 MODEL_NAME = MODEL
 MODELS_DIR = os.path.join(Current_directory, 'Model')
 print("The model directory is "+ MODELS_DIR)
