@@ -4,6 +4,7 @@ import time
 import cv2
 import numpy as np
 import tensorflow as tf
+import matplotlib.pyplot as plt
 
 from object_detection.utils import label_map_util
 from object_detection.builders import model_builder
@@ -27,7 +28,7 @@ filenames = map(lambda x: '\\new_images\\' + x,
                 'image 5.jpg', 'image 6.jpg'))
 
 #Save the location info
-MODEL = 'my_model1'
+MODEL = 'my_model'
 MODEL_NAME = MODEL
 MODELS_DIR = os.path.join(Current_directory, 'Model')
 print("The model directory is "+ MODELS_DIR)
@@ -49,6 +50,9 @@ detection_model = model_builder.build(model_config=model_config, is_training=Fal
 ckpt = tf.compat.v2.train.Checkpoint(model=detection_model)
 ckpt.restore(os.path.join(PATH_TO_CKPT, 'ckpt-0')).expect_partial()
 
+#Labelmap
+PATH_TO_LABELS = os.path.join(MODELS_DIR, os.path.join(MODEL_NAME, 'label_map.pbtxt'))
+
 start_time = time.time()
 @tf.function
 def detect_fn(image):
@@ -66,8 +70,6 @@ elapsed_time = end_time - start_time
 print('Done! Took {} seconds'.format(elapsed_time))
 
 # Create the category index
-#PATH_TO_LABELS = os.path.join(MODELS_DIR, os.path.join(MODEL_NAME, LABEL_FILENAME))
-PATH_TO_LABELS = 'C:/Users/anjuw/.keras/datasets/mscoco_label_map.pbtxt'
 category_index = label_map_util.create_category_index_from_labelmap(PATH_TO_LABELS, use_display_name=True)
 
 for i in filenames:
@@ -84,7 +86,7 @@ for i in filenames:
 
     #Display the image
     label_id_offset = 1
-    image_np_with_detections = image_np.copy()
+    image_np_with_detections = cv2.resize(image_np.copy(), (800, 600))
     viz_utils.visualize_boxes_and_labels_on_image_array(
           image_np_with_detections,
           detections['detection_boxes'][0].numpy(),
@@ -97,9 +99,10 @@ for i in filenames:
           agnostic_mode=False)
 
     #Display final output
+    #plt.imshow(image_np_with_detections)
     cv2.imshow(i, cv2.resize(image_np_with_detections, (800, 600)))
-    print("Finish Showing")
-    if cv2.waitKey(25) & 0xFF == ord('q'):
-        break 
 
-cv2.destroyAllWindows
+while True:
+    if cv2.waitKey(25) & 0xFF == ord('q'):
+        cv2.destroyAllWindows()
+        break
