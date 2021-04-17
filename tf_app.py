@@ -72,10 +72,16 @@ print('Done! Took {} seconds'.format(elapsed_time))
 # Create the category index
 category_index = label_map_util.create_category_index_from_labelmap(PATH_TO_LABELS, use_display_name=True)
 
-for i in filenames:
-    #Read from the test files
-    image_np = cv2.imread(Current_directory + i)
-    print("Showing "+i)
+# Use video capture 
+cap = cv2.VideoCapture(0)
+
+# for i in filenames:
+while True:
+    _, frame = cap.read()
+    image_np = frame
+    # #Read from the test files
+    # image_np = cv2.imread(Current_directory + i)
+    # print("Showing "+i)
 
     # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
     image_np_expanded = np.expand_dims(image_np, axis=0)
@@ -100,9 +106,13 @@ for i in filenames:
 
     #Display final output
     #plt.imshow(image_np_with_detections)
-    cv2.imshow(i, cv2.resize(image_np_with_detections, (800, 600)))
-
-while True:
+    # cv2.imshow(i, cv2.resize(image_np_with_detections, (800, 600)))
+    cv2.imshow( "video", cv2.resize(image_np_with_detections, (800, 600)))
     if cv2.waitKey(25) & 0xFF == ord('q'):
         cv2.destroyAllWindows()
         break
+
+# while True:
+#     if cv2.waitKey(25) & 0xFF == ord('q'):
+#         cv2.destroyAllWindows()
+#         break
