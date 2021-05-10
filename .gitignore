@@ -3,3 +3,4 @@ images
 model
 *.ipynb
 .ipynb_checkpoints
+new_images
