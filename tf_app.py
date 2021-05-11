@@ -98,12 +98,12 @@ def load_image_into_numpy_array(image):
 # @title Choose the model to use, then evaluate the cell.
 # MODELS = 'ssd_mobilenet_v2_320x320_coco17_tpu-8'
 # model_display_name = 'Mobilenet_with_keypoints' # @param ['centernet_with_keypoints', 'centernet_without_keypoints']
-MODEL_NAME = 'ssd_mobilenet_v2_320x320_coco17_tpu-8'
+MODEL_NAME = 'my_model'
 
 # pipeline_config = os.path.join('/home/nwoke/Documents/git_cloned/Github/models/research/object_detection/configs/tf2/',
 #                                 model_name + '.config')
 DATA_DIR = os.getcwd()
-MODELS_DIR = os.path.join(DATA_DIR, 'model')
+MODELS_DIR = os.path.join(DATA_DIR, 'Model')
 PATH_TO_CKPT = os.path.join(MODELS_DIR, os.path.join(MODEL_NAME, 'checkpoint/'))
 PATH_TO_CFG = os.path.join(MODELS_DIR, os.path.join(MODEL_NAME, 'pipeline.config'))
 print('Loading model... ', end='')
@@ -137,9 +137,9 @@ end_time = time.time()
 elapsed_time = end_time - start_time
 print('Done! Took {} seconds'.format(elapsed_time))
 
-
-# PATH_TO_LABELS = os.path.join(MODELS_DIR, os.path.join(MODEL_NAME, LABEL_FILENAME))
-PATH_TO_LABELS = "/home/nwoke/Documents/git_cloned/Github/models/research/object_detection/data/face_label_map.pbtxt"
+LABEL_FILENAME = "label_map.pbtxt"
+PATH_TO_LABELS = os.path.join(MODELS_DIR, os.path.join(MODEL_NAME, LABEL_FILENAME))
+#PATH_TO_LABELS = "C:/Users\anjuw\Documents\programming\Github\Recognition_system\Model\my_model\label_map.pbtxt"
 category_index = label_map_util.create_category_index_from_labelmap(PATH_TO_LABELS, use_display_name=True)
 
 cap = cv2.VideoCapture(0)
