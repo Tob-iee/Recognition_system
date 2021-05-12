@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>image 306.jpg</filename>
+	<path>C:\Users\anjuw\Documents\programming\Python\Artificial_intellegence\TensorFlow\TensorFlow\workspace\Face_detection\images\image 306.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1000</width>
+		<height>1500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>face</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>205</xmin>
+			<ymin>420</ymin>
+			<xmax>794</xmax>
+			<ymax>1104</ymax>
+		</bndbox>
+	</object>
+</annotation>

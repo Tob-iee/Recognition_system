@@ -164,7 +164,7 @@ while True:
     # Convert image to grayscale
     # image_np = np.tile(
     #     np.mean(image_np, 2, keepdims=True), (1, 1, 3)).astype(np.uint8)
-
+        
         detections, predictions_dict, shapes = detect_fn(input_tensor)
 
         label_id_offset = 1
@@ -182,7 +182,7 @@ while True:
         agnostic_mode=False)
 
   # Display the resulting frame
-    # out.write(image_np_with_detections)
+    out.write(image_np_with_detections)
     cv2.imshow('frame',image_np_with_detections)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
