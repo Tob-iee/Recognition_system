@@ -1,6 +1,7 @@
 app.py
-images
-model
+# images
+models
 *.ipynb
 .ipynb_checkpoints
 new_images
+Dockerfile
