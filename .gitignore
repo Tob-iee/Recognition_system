@@ -1,7 +1,2 @@
-app.py
-# images
-models
-*.ipynb
-.ipynb_checkpoints
-new_images
+# models
 Dockerfile
