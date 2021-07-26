@@ -1,2 +1,6 @@
 # models
 Dockerfile
+workspace/pre-trained_model/ssd_mobilenet_v1_fpn_640x640_coco17_tpu-8
+workspace/pre-trained_model/ssd_mobilenet_v2_2
+workspace/pre-trained_model/ssd_mobilenet_v2_320x320_coco17_tpu-8
+workspace/pre-trained_model/ssd_mobilenet_v2_coco_2018_03_29
