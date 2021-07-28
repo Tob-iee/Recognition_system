@@ -7,7 +7,7 @@ This application using the local camera system to take video input to detects hu
 ### Requirements
 flask\
 opencv-contrib-python-headless\
-matplotlib\
+matplotlib
 
 ### Detection Model used
 The models that is used is tensorflow model that has been re-trained model, And it was gotten from the list of available pre-trained models on the Tensorflow object detection API repository ([Link](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md)). For tutorials on how to re-train a tensorflow model this could serve as a good guide ([Link](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/training.html))
