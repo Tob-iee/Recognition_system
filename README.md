@@ -16,6 +16,11 @@ The models that is used is tensorflow model that has been re-trained model, And 
 ```
 Python3 scripts/tf_app.py
 ```
+### To see output
+paste this url in your browser
+```
+http://0.0.0.0:2204/detections
+```
 
 ## Observation
 When closer to the camera the detection accuracy is higher and there are lags in the detection between frame intervals.
