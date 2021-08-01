@@ -1,6 +1,6 @@
 # Recognition_system
 
-This application using the local camera system to take video input to detects human faces and streams it through your local host on your browse by using the flasl API
+An application uses takes video input from camera, then streams it to a local endpoint using the flask API and runs face detection using a Tensorflow model
 
 
 ## Guide for running the app
